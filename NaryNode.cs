@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace narynode1
+namespace narynode3
 {
     class NaryNode<T>
     {
@@ -24,17 +24,18 @@ namespace narynode1
 
         public override string ToString()
         {
-            string result = "";
-            foreach(var v in Children)
-            {
-                result += v.ToString() + " ";
-            }
-            return Value.ToString() + ": " + result;
+            return ToString("   ");
         }
 
+        public string ToString(string spaces)
+        {
+            string result = spaces + Value.ToString() + ":\n";
 
+            foreach (NaryNode<T> child in Children)
+                result += child.ToString(spaces + "  ");
+            return result;
+        }
 
     }
-
 
 }
