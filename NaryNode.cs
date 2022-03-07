@@ -36,6 +36,36 @@ namespace narynode3
             return result;
         }
 
+        public NaryNode<T> FindNode(T val)
+        {
+            // check if val in this node
+            if (EqualityComparer<T>.Default.Equals(Value, val))
+            {
+                return this;
+            }
+            foreach (NaryNode<T>child in Children)
+            {
+                NaryNode<T> node = child.FindNode(val);
+                if(node != null)
+                {
+                    return node;
+                }
+            }
+ 
+              
+            
+            return null;
+
+        }
+        public static void FindValue(NaryNode<string> root, string target)
+        {
+            NaryNode<string> node = root.FindNode(target);
+            if (node == null)
+                Console.WriteLine(string.Format("Value {0} not found", target));
+            else
+                Console.WriteLine(string.Format("Found {0}", node.Value));
+        }
+
     }
 
 }

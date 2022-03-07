@@ -18,6 +18,14 @@ namespace narynode3
             node.Children[2].Children[0].AddChild(new NaryNode<string>("I"));
 
             Console.WriteLine(node.ToString());
+            NaryNode<string>.FindValue(node, "Root");
+            NaryNode<string>.FindValue(node, "A");
+            NaryNode<string>.FindValue(node, "B");
+            NaryNode<string>.FindValue(node, "C");
+            NaryNode<string>.FindValue(node, "D");
+            NaryNode<string>.FindValue(node, "E");
+            NaryNode<string>.FindValue(node, "F");
+            NaryNode<string>.FindValue(node, "Q");
         }
     }
 }
